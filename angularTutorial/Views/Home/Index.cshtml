@@ -8,7 +8,7 @@
 <head>
 
     <meta charset="utf-8">
-   <title ng-bind-template="Google Phone Gallery: {{query}}">Google Phone Gallery</title>
+    <title ng-bind-template="Google Phone Gallery: {{query}}">Google Phone Gallery</title>
     <link rel="stylesheet" href="app/css/app.css">
     <script src="~/scripts/jquery-1.9.1.min.js"></script>
     <script src="~/scripts/angular.js"></script>
@@ -18,51 +18,20 @@
     <script src="~/app/js/controllers.js"></script>
 </head>
 <body>
+    Search:
+    <input ng-model="query">
+    Sort by:
+    <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="age">Newest</option>
+        <option value="-age">Oldest</option>
+    </select>
 
-    @*    <p>Nothing here {{'yet' + '!'}}</p>
-    <p>1 + 2 = {{ 1 + 2 }}</p>*@
-
-
-    @*  <ul>
-        <li>
-            <span>Nexus S</span>
-            <p>
-                Fast just got faster with Nexus S.
-            </p>
-        </li>
-        <li>
-            <span>Motorola XOOM™ with Wi-Fi</span>
-            <p>
-                The Next, Next Generation tablet.
-            </p>
+    Current sort: {{orderProp}}
+    <ul class="phones">
+        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">{{phone.name}}
+    <p>{{phone.snippet}}</p>
         </li>
     </ul>
-
-    <p>Total number of phones: 2</p>*@
-
-
-    <div>
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span2">
-                    <!--Sidebar content-->
-
-                    Search:
-                    <input ng-model="query">
-                </div>
-                <div class="span10">
-                    <!--Body content-->
-                    <div id="status">Current filter: {{query}}</div>
-                    <ul class="phones">
-                        <li ng-repeat="phone in phones | filter:query">{{phone.name}}
-          <p>{{phone.snippet}}</p>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </div>
-
-    </div>
 </body>
 </html>
