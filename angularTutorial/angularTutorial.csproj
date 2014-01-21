@@ -209,7 +209,11 @@
     <Content Include="app\img\phones\t-mobile-mytouch-4g.3.jpg" />
     <Content Include="app\img\phones\t-mobile-mytouch-4g.4.jpg" />
     <Content Include="app\img\phones\t-mobile-mytouch-4g.5.jpg" />
+    <Content Include="app\index.html" />
     <Content Include="app\js\controllers.js" />
+    <Content Include="app\test\e2e\runner.html" />
+    <Content Include="app\test\e2e\scenarios.js" />
+    <Content Include="app\test\lib\angular\angular-scenario.js" />
     <Content Include="app\test\unit\controllersSpec.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -245,6 +249,7 @@
     <Content Include="app\phones\sanyo-zio.json" />
     <Content Include="app\phones\t-mobile-g2.json" />
     <Content Include="app\phones\t-mobile-mytouch-4g.json" />
+    <Content Include="app\test\e2e\README.md" />
     <None Include="scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />

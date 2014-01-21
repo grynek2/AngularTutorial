@@ -1,7 +1,8 @@
 ﻿/// <reference path="../../../scripts/angular.js" />
 /// <reference path="../../../scripts/angular-mocks.js" />
-
+ 
 /// <reference path="../../js/controllers.js" />
+/// <reference path="../../index.html" />
  
 'use strict';
 
@@ -33,6 +34,13 @@ describe('PhoneCat controllers', function () {
 
         it('should set the default value of orderProp model', function () {
             expect(scope.orderProp).toBe('age');
+        });
+
+        it('should render phone specific links', function () {
+
+            input('query').enter('nexus');
+            element('.phones li a').click();
+            expect(browser().location().url()).toBe('/phones/nexus-s');
         });
     });
 });

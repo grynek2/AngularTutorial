@@ -9,7 +9,8 @@
 
     <meta charset="utf-8">
     <title ng-bind-template="Google Phone Gallery: {{query}}">Google Phone Gallery</title>
-    <link rel="stylesheet" href="app/css/app.css">
+    <link href="~/app/css/animations.css" rel="stylesheet" />
+    <link href="~/app/css/app.css" rel="stylesheet" />
     <script src="~/scripts/jquery-1.9.1.min.js"></script>
     <script src="~/scripts/angular.js"></script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -28,11 +29,13 @@
     </select>
 
     Current sort: {{orderProp}}
-    <ul class="phones">
-        <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">{{phone.name}}
-    <p>{{phone.snippet}}</p>
-        </li>
-    </ul>
-    {{phones | json}}
+     <ul class="phones">
+         <li ng-repeat="phone in phones | filter:query | orderBy:orderProp" class="thumbnail">
+             <a href="#/phones/{{phone.id}}" class="thumb">
+                 <img ng-src="app/{{phone.imageUrl}}"></a>
+             <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
+             <p>{{phone.snippet}}</p>
+         </li>
+     </ul>
 </body>
 </html>
