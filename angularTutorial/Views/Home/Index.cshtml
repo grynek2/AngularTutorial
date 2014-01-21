@@ -4,11 +4,11 @@
 
 
 <!doctype html>
-<html lang="en" ng-app="phonecatApp">
+<html lang="en" ng-app="phonecatApp" ng-controller="PhoneListCtrl">
 <head>
 
     <meta charset="utf-8">
-    <title>My HTML File</title>
+   <title ng-bind-template="Google Phone Gallery: {{query}}">Google Phone Gallery</title>
     <link rel="stylesheet" href="app/css/app.css">
     <script src="~/scripts/jquery-1.9.1.min.js"></script>
     <script src="~/scripts/angular.js"></script>
@@ -41,24 +41,28 @@
     <p>Total number of phones: 2</p>*@
 
 
-    <div ng-controller="PhoneListCtrl">
-            Hello {{Message}}
-        <ul>
-            <li ng-repeat="phone in phones">{{phone.name}}
-                <p>{{phone.snippet}}</p>
-            </li>
-        </ul>
+    <div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span2">
+                    <!--Sidebar content-->
 
-        <p>Total number of phones: {{phones.length}}</p>
+                    Search:
+                    <input ng-model="query">
+                </div>
+                <div class="span10">
+                    <!--Body content-->
+                    <div id="status">Current filter: {{query}}</div>
+                    <ul class="phones">
+                        <li ng-repeat="phone in phones | filter:query">{{phone.name}}
+          <p>{{phone.snippet}}</p>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
     </div>
-
-     <table>
-      <tr><th>row number</th></tr>
-      <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i}}</td></tr>
-    </table>
-    <table>
-      <tr><th>row number</th></tr>
-      <tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
-    </table>
 </body>
 </html>
